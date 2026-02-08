@@ -1,5 +1,3 @@
-// csharp
-
 using Labyrinth.Exploration;
 using Labyrinth.Tiles;
 
