@@ -1,0 +1,33 @@
+name: Laby CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore Labyrinth.sln
+
+    - name: Build solution
+      run: dotnet build Labyrinth.sln --configuration Release --no-restore
+
+    - name: Run tests
+      run: dotnet test Labyrinth.sln --configuration Release --no-build --verbosity normal
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: console-client
+        path: publish/client
