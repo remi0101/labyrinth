@@ -1,11 +1,7 @@
-using NUnit.Framework;
 using Labyrinth.Build;
 using Labyrinth.Tiles;
-using Labyrinth.Items;
-using System;
-using System.Threading.Tasks;
 
-namespace Labyrinth.Tests
+namespace LabyrinthTest
 {
     [TestFixture]
     public class KeyMasterTest
